@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node -r dotenv/config bin/www",
+    "test" : "jest --coverage",
     "develop": "nodemon -r dotenv/config bin/www",
     "db:create": "sequelize db:create",
     "db:drop": "sequelize db:drop",

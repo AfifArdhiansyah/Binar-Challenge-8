@@ -87,7 +87,7 @@ class CarController extends ApplicationController {
       }
 
       const userCar = await this.userCarModel.create({
-        userId: req.user.id,
+        userId: req.body.userId,
         carId: car.id,
         rentStartedAt,
         rentEndedAt,
@@ -110,7 +110,7 @@ class CarController extends ApplicationController {
         image,
       } = req.body;
 
-      const car = this.getCarFromRequest(req);
+      const car = await this.getCarFromRequest(req);
 
       await car.update({
         name,
@@ -134,12 +134,14 @@ class CarController extends ApplicationController {
   }
 
   handleDeleteCar = async (req, res) => {
-    const car = await this.carModel.destroy(req.params.id); 
-    res.status(204).end();
+    const car = await this.carModel.destroy({where: {id: req.params.id}}).then(() => {
+      res.status(200).json({message: "Car deleted successfully"});
+    });
   }
 
-  getCarFromRequest(req) {
-    return this.carModel.findByPk(req.params.id);
+  async getCarFromRequest(req) {
+    const car = await this.carModel.findByPk(req.params.id);
+    return car;
   }
 
   getListQueryFromRequest(req) {
