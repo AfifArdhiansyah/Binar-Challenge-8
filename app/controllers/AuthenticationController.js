@@ -90,7 +90,7 @@ class AuthenticationController extends ApplicationController {
       let existingUser = await this.userModel.findOne({ where: { email, }, });
 
       if (!!existingUser) {
-        const err = new EmailAlreadyTakenError(email);
+        // const err = new EmailAlreadyTakenError(email);
         res.status(422).json(err);
         return;
       }

@@ -42,7 +42,7 @@ describe("CarController", () => {
         it("should return a single car", async () => {
         const req = {
             params: {
-            id: 21,
+            id: 22,
             },
         };
     
@@ -87,7 +87,7 @@ describe("CarController", () => {
         it("should update an existing car", async () => {
         const req = {
             params: {
-                id: 21,
+                id: 22,
             },
             body: {
                 name: "Test Car",
@@ -140,7 +140,7 @@ describe("CarController", () => {
         it("should delete an existing car", async () => {
         const req = {
             params: {
-                id: 21,
+                id: 22,
             },
         };
     
