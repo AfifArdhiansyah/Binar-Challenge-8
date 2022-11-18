@@ -13,25 +13,23 @@ let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config, {
     define: {
-      hooks: {
-        beforeFind: (model) => {
-           model.attributes = {}
-           model.attributes.exclude = ['createdAt', 'updatedAt']
+      defaultScope: {
+        attributes: {
+          exclude: ["createdAt", "updatedAt"]
         }
       },
-      timestamps: false,
+      timestamps: false
     }
   });
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config, {
     define: {
-      hooks: {
-        beforeFind: (model) => {
-           model.attributes = {}
-           model.attributes.exclude = ['createdAt', 'updatedAt']
+      defaultScope: {
+        attributes: {
+          exclude: ["createdAt", "updatedAt"]
         }
       },
-      timestamps: false,
+      timestamps: false
     }
   });
 }
