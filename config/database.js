@@ -1,11 +1,11 @@
-// require('dotenv').config();
+require('dotenv').config();
 const {
-  DB_USER = 'postgres',
-  DB_PASSWORD = '123456',
-  DB_NAME = 'binar_challenge_8',
-  DB_HOST = 'localhost',
-  DB_PORT = '5432',
-  DB_DIALECT = 'postgres',
+  DB_USER,
+  DB_PASSWORD,
+  DB_NAME,
+  DB_HOST,
+  DB_PORT,
+  DB_DIALECT,
 } = process.env;
 
 module.exports = {
@@ -26,11 +26,11 @@ module.exports = {
     dialect: DB_DIALECT
   },
   production: {
-    username: DB_USER,
-    password: DB_PASSWORD,
-    database: `${DB_NAME}_production`,
-    host: DB_HOST,
-    port: DB_PORT,
-    dialect: DB_DIALECT
+    username: 'postgres',
+    password: '123456',
+    database: 'binar_challenge_8_production',
+    host: '127.0.0.1',
+    port: '5432',
+    dialect: 'postgres'
   }
 }
