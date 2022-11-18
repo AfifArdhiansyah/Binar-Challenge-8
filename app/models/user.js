@@ -31,9 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     image: DataTypes.STRING,
     encryptedpassword: DataTypes.STRING,
-    roleid: DataTypes.INTEGER,
-    createdat: DataTypes.DATE,
-    updatedat: DataTypes.DATE,
+    roleid: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'User',
