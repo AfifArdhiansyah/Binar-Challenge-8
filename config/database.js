@@ -27,10 +27,10 @@ module.exports = {
   },
   production: {
     username: 'postgres',
-    password: '123456',
-    database: 'binar_challenge_8_production',
-    host: 'https://binar-challenge-8-production.up.railway.app',
-    port: '5432',
+    password: 'uDGvA2vtjS48sSEPMC9u',
+    database: 'railway',
+    host: 'containers-us-west-121.railway.app',
+    port: '5930',
     dialect: 'postgres'
   }
 }
