@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     carid: DataTypes.INTEGER,
     rentstartedat: DataTypes.DATE,
     rentendedat: DataTypes.DATE,
-    createdat: DataTypes.DATETIME,
-    updatedat: DataTypes.DATETIME,
+    createdat: DataTypes.DATE,
+    updatedat: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'UserCar',

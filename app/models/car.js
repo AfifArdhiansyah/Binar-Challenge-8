@@ -36,8 +36,8 @@ module.exports = (sequelize, DataTypes) => {
     size: DataTypes.STRING,
     image: DataTypes.STRING,
     iscurrentlyrented: DataTypes.BOOLEAN,
-    createdat: DataTypes.DATETIME,
-    updatedat: DataTypes.DATETIME,
+    createdat: DataTypes.DATE,
+    updatedat: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Car',
