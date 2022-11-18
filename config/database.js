@@ -1,11 +1,11 @@
-require('dotenv').config();
+// require('dotenv').config();
 const {
-  DB_USER,
-  DB_PASSWORD,
-  DB_NAME,
-  DB_HOST,
-  DB_PORT,
-  DB_DIALECT,
+  DB_USER = 'postgres',
+  DB_PASSWORD = '123456',
+  DB_NAME = 'binar_challenge_8',
+  DB_HOST = 'localhost',
+  DB_PORT = '5432',
+  DB_DIALECT = 'postgres',
 } = process.env;
 
 module.exports = {
