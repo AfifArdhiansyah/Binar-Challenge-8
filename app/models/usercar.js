@@ -20,10 +20,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   UserCar.init({
-    userId: DataTypes.INTEGER,
-    carId: DataTypes.INTEGER,
-    rentStartedAt: DataTypes.DATE,
-    rentEndedAt: DataTypes.DATE
+    userid: DataTypes.INTEGER,
+    carid: DataTypes.INTEGER,
+    rentstartedat: DataTypes.DATE,
+    rentendedat: DataTypes.DATE,
+    createdat: DataTypes.DATETIME,
+    updatedat: DataTypes.DATETIME,
   }, {
     sequelize,
     modelName: 'UserCar',

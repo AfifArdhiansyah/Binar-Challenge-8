@@ -35,7 +35,9 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.FLOAT,
     size: DataTypes.STRING,
     image: DataTypes.STRING,
-    isCurrentlyRented: DataTypes.BOOLEAN
+    iscurrentlyrented: DataTypes.BOOLEAN,
+    createdat: DataTypes.DATETIME,
+    updatedat: DataTypes.DATETIME,
   }, {
     sequelize,
     modelName: 'Car',
