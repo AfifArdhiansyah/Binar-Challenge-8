@@ -154,6 +154,7 @@ class CarController extends ApplicationController {
       as: "userCar",
       required: false,
     }
+    const exclude = ["createdAt", "updatedAt"];
 
     if (!!size) where.size = size;
     if (!!availableAt) {
@@ -166,6 +167,7 @@ class CarController extends ApplicationController {
 
     const query = {
       include,
+      exclude,
       where,
       limit,
       offset,
