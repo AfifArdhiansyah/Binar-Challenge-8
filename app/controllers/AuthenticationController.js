@@ -62,7 +62,7 @@ class AuthenticationController extends ApplicationController {
         return;
       }
 
-      const isPasswordCorrect = this.verifyPassword(password, user.encryptedPassword);
+      const isPasswordCorrect = this.verifyPassword(password, user.encryptedpassword);
 
       if (!isPasswordCorrect) {
         const err = new WrongPasswordError();
