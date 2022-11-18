@@ -35,7 +35,19 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.FLOAT,
     size: DataTypes.STRING,
     image: DataTypes.STRING,
-    iscurrentlyrented: DataTypes.BOOLEAN
+    iscurrentlyrented: DataTypes.BOOLEAN,
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
+      field: "createdat",
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
+      field: "updatedat",
+    }
   }, {
     sequelize,
     modelName: 'Car',
