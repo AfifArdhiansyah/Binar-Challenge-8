@@ -102,8 +102,8 @@ class AuthenticationController extends ApplicationController {
       const user = await this.userModel.create({
         name,
         email,
-        encryptedPassword: this.encryptPassword(password),
-        roleId: role.id,
+        encryptedpassword: this.encryptPassword(password),
+        roleid: role.id,
       }) 
 
       const accessToken = this.createTokenFromUser(user, role);
@@ -127,7 +127,7 @@ class AuthenticationController extends ApplicationController {
       return;
     }
 
-    const role = await this.roleModel.findByPk(user.roleId); 
+    const role = await this.roleModel.findByPk(user.roleid); 
 
     if (!role) {
       const err = new RecordNotFoundError(this.roleModel.name);
@@ -159,8 +159,8 @@ class AuthenticationController extends ApplicationController {
     return this.bcrypt.hashSync(password, 10);
   }
 
-  verifyPassword = (password, encryptedPassword) => {
-    return this.bcrypt.compareSync(password, encryptedPassword)
+  verifyPassword = (password, encryptedpassword) => {
+    return this.bcrypt.compareSync(password, encryptedpassword)
   }
 }
 

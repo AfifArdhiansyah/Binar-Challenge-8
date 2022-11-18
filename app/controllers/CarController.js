@@ -45,7 +45,7 @@ class CarController extends ApplicationController {
         price,
         size,
         image,
-        isCurrentlyRented: false,
+        iscurrentlyrented: false,
       });
 
       res.status(201).json(car);
@@ -63,19 +63,19 @@ class CarController extends ApplicationController {
 
   handleRentCar = async (req, res, next) => {
     try {
-      let { rentStartedAt, rentEndedAt } = req.body;
+      let { rentstartedat, rentendedat } = req.body;
       const car = await this.getCarFromRequest(req)
 
-      if (!rentEndedAt) rentEndedAt = this.dayjs(rentStartedAt).add(1, "day");
+      if (!rentendedat) rentendedat = this.dayjs(rentstartedat).add(1, "day");
 
       const activeRent = await this.userCarModel.findOne({
         where: {
-          carId: car.id,
-          rentStartedAt: {
-            [Op.gte]: rentStartedAt,
+          carid: car.id,
+          rentstartedat: {
+            [Op.gte]: rentstartedat,
           },
-          rentEndedAt: {
-            [Op.lte]: rentEndedAt, 
+          rentendedat: {
+            [Op.lte]: rentendedat, 
           }
         }
       });
@@ -87,10 +87,10 @@ class CarController extends ApplicationController {
       }
 
       const userCar = await this.userCarModel.create({
-        userId: req.body.userId,
-        carId: car.id,
-        rentStartedAt,
-        rentEndedAt,
+        userid: req.body.userid,
+        carid: car.id,
+        rentstartedat,
+        rentendedat,
       });
 
       res.status(201).json(userCar)
@@ -117,7 +117,7 @@ class CarController extends ApplicationController {
         price,
         size,
         image,
-        isCurrentlyRented: false,
+        iscurrentlyrented: false,
       });
 
       res.status(200).json(car);
@@ -159,7 +159,7 @@ class CarController extends ApplicationController {
     if (!!size) where.size = size;
     if (!!availableAt) {
       include.where = {
-        rentEndedAt: {
+        rentendedat: {
           [Op.gte]: availableAt, 
         }
       }
