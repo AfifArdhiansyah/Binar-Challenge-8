@@ -31,7 +31,19 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     image: DataTypes.STRING,
     encryptedpassword: DataTypes.STRING,
-    roleid: DataTypes.INTEGER
+    roleid: DataTypes.INTEGER,
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
+      field: "createdat",
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
+      field: "updatedat",
+    }
   }, {
     sequelize,
     modelName: 'User',

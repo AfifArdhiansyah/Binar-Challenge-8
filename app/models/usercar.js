@@ -23,7 +23,19 @@ module.exports = (sequelize, DataTypes) => {
     userid: DataTypes.INTEGER,
     carid: DataTypes.INTEGER,
     rentstartedat: DataTypes.DATE,
-    rentendedat: DataTypes.DATE
+    rentendedat: DataTypes.DATE,
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
+      field: "createdat",
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
+      field: "updatedat",
+    }
   }, {
     sequelize,
     modelName: 'UserCar',
