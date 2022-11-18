@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     isCurrentlyRented: DataTypes.BOOLEAN
   }, {
     sequelize,
-    modelName: 'cars',
+    modelName: 'Car',
   });
   return Car;
 };
